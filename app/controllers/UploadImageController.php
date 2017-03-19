@@ -10,4 +10,9 @@ class UploadImageController extends HomeController
         $up = new UploadPicture($_FILES);
         $up->save();
     }
+    
+    public function view($req, $res, $args)
+    {
+        $this->container['view']->render($res, 'view1.html', array());
+    }
 }
