@@ -1,10 +1,8 @@
-# slim-demo
-This is a slim demo.
+# php image server 
+This is a php image server demo.
 
-## Include
+## command
 
-- session
-
-- controller
-
-- Eloquent
+```bash
+http -f POST http://localhost:3001/upload/image background@background.jpg
+```
