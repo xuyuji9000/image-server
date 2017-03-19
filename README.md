@@ -3,6 +3,14 @@ This is a php image server demo.
 
 ## command
 
+upload picture page
 ```bash
-http -f POST http://localhost:3001/upload/image background@background.jpg
+http GET http://localhost:3001/uploadimage/view
 ```
+
+upload picture 
+
+```bash
+http -f POST http://localhost:3001/uploadimage/upload background@background.jpg
+```
+
