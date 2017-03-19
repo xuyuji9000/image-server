@@ -13,6 +13,6 @@ return [
             'password'  => getenv('PASSWORD'),
             'collation' => getenv('COLLATION'),
             'prefix'    => getenv('PREFIX'),
-        ],
+            ],
     ],
 ];

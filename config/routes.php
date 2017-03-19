@@ -17,6 +17,4 @@ $app->get('/json', function($request, $response, $args){
     return $response;
 });
 
-$app->post('/upload', function($request, $response, $args){
-    var_dump($request);
-});
+$app->post('/upload/image', App\Controllers\UploadImageController::class.':upload');
