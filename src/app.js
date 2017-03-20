@@ -4,6 +4,7 @@ import ImageUpload from './components/ImageUpload';
 
 const App = (
     <div>
+        <div>Hello World</div>
         <ImageUpload></ImageUpload>
     </div>
 );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { post } from 'axios';
 
 
 class ImageUpload extends Component
@@ -18,6 +19,7 @@ class ImageUpload extends Component
     _handleSubmit(e)
     {
         e.preventDefault();
+        this.uploadImage(this.state.file);
     }
 
     _handleImageChange(e)
@@ -35,6 +37,25 @@ class ImageUpload extends Component
         }
 
         reader.readAsDataURL(file);
+    }
+
+    uploadImage(imageFile)
+    {
+        let imageFormData = new FormData();
+        imageFormData.append('imageFile', imageFile);
+        const config = {
+            headers: { 'content-type': 'multipart/form-data' }
+        };
+        const url = 'http://localhost:3001/uploadimage/upload';
+        post(url, imageFormData, config)
+            .then(function(response){
+                console.log(response);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+
+
     }
 
     render() 
