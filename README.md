@@ -1,5 +1,5 @@
 # php image server 
-This is a php image server demo.
+This is an image server demo.
 
 ## command
 
