@@ -21,7 +21,8 @@ class UploadPicture
     public function save()
     {
         // create destination image path
-        $destination_image_path = getenv('UPLOAD_PATH').'/'.$this->getMd5Path().$this->getExtension();
+        $relative_image_path = $this->getMd5Path().$this->getExtension();
+        $destination_image_path = getenv('IMAGE_SERVER_DIRECTORY').'/'.$relative_image_path;
         $destination_image_directory = dirname($destination_image_path);
 
         if(!is_dir($destination_image_directory))
@@ -29,7 +30,10 @@ class UploadPicture
             mkdir($destination_image_directory, 0777, true);
         }
 
-        return move_uploaded_file( $this->file['tmp_name'], $destination_image_path);
+        if(move_uploaded_file( $this->file['tmp_name'], $destination_image_path))
+            return getenv('IMAGE_SERVER_HOST').'/'.$relative_image_path;
+        else 
+            return false;
     }
 
     /**

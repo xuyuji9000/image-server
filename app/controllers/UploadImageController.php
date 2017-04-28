@@ -8,7 +8,14 @@ class UploadImageController extends HomeController
     public function upload($req, $res,$args)
     {
         $up = new UploadPicture($_FILES);
-        $up->save();
+
+        $image_url = $up->save();
+
+        if($image_url)
+            $res = $this->setSuccessJson($res, $image_url);
+        else
+            $res = $this->setFailMessageJson($res, 'Upload image failed.');
+
         return $res;
     }
     

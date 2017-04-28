@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import ImageUpload from './components/ImageUpload'; 
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 
-const App = (
-    <div>
-        <div>Hello World</div>
-        <ImageUpload></ImageUpload>
-    </div>
-);
+import Main from './Main'
+
 
 
 render(
-    App,
+    <Main></Main>,
     document.getElementById('root')
-);
+)

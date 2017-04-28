@@ -49,7 +49,7 @@ class ImageUpload extends Component
         const url = 'http://localhost:3001/uploadimage/upload';
         post(url, imageFormData, config)
             .then(function(response){
-                console.log(response);
+                console.log(response.data);
             })
             .catch(function(error){
                 console.log(error);

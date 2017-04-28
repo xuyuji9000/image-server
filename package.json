@@ -23,9 +23,14 @@
   "homepage": "https://github.com/xuyuji9000/php-image-server#readme",
   "dependencies": {
     "axios": "^0.15.3",
-    "react": "^15.4.2",
+    "create-react-class": "^15.5.2",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
     "react-dom": "^15.4.2",
-    "react-dropzone": "^3.12.2"
+    "react-dropzone": "^3.12.2",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
