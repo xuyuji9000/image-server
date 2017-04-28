@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import createReactClass from 'create-react-class'
 import { post } from 'axios'
 import { connect  } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -7,35 +8,23 @@ import PropTypes from 'prop-types'
 import ImageUploadActions from './actions'
 
 
-class ImageUpload extends Component
-{
-    constructor(props)
-    {
-        super(props)
-        this.state = {
+let ImageUpload = createReactClass({
+    getInitialState: function() {
+        return {
             file: '',
             imagePreviewUrl: '',
             image_url: '',
         }
-
-        this._handleImageChange = this._handleImageChange.bind(this)
-        this._handleSubmit = this._handleSubmit.bind(this)
-    }
-
-    componentWillReceiveProps(nextProps)
-    {
+    },
+    componentWillReceiveProps: function(nextProps){
         if(this.props.image_url != nextProps)
             this.setState({image_url: nextProps.image_url})
-    }
-
-    _handleSubmit(e)
-    {
+    },
+    _handleSubmit: function(e) {
         e.preventDefault()
         this.uploadImage(this.state.file)
-    }
-
-    _handleImageChange(e)
-    {
+    },
+    _handleImageChange: function(e) {
         e.preventDefault()
 
         let reader = new FileReader()
@@ -49,10 +38,8 @@ class ImageUpload extends Component
         }
 
         reader.readAsDataURL(file)
-    }
-
-    uploadImage(imageFile)
-    {
+    },
+    uploadImage: function(imageFile) {
         let imageFormData = new FormData()
         imageFormData.append('imageFile', imageFile)
         const config = {
@@ -68,12 +55,8 @@ class ImageUpload extends Component
             .catch(function(error){
                 console.log(error)
             })
-
-
-    }
-
-    render() 
-    {
+    },
+    render() {
         let {imagePreviewUrl} = this.state
         let $imagePreview = null
         if(imagePreviewUrl)
@@ -100,7 +83,8 @@ class ImageUpload extends Component
             </div>
         )
     }
-}
+
+})
 
 ImageUpload.propTypes = {
     image_url: PropTypes.string.isRequired,
