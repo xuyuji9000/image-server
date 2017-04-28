@@ -1,5 +1,10 @@
-import React, { Component } from 'react';
-import { post } from 'axios';
+import React, { Component } from 'react'
+import { post } from 'axios'
+import { connect  } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types'
+
+import ImageUploadActions from './actions'
 
 
 class ImageUpload extends Component
@@ -78,5 +83,25 @@ class ImageUpload extends Component
         );
     }
 }
+
+// ImageUpload.propTypes = {
+//     image_url: PropTypes.string.isRequired,
+//     actions: PropTypes.shape({
+//         updateImageUrl: PropTypes.func.isRequired,
+//     }),
+// }
+// 
+// const mapStateToProps = state => ({
+//     ...state.imageupload
+// })
+// 
+// const mapDispatchToProps = dispatch => ({
+//     actions: bindActionCreators(ImageUploadActions, dispatch)
+// })
+// 
+// ImageUpload = connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+// )(ImageUpload)
 
 export default ImageUpload;

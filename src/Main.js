@@ -1,15 +1,14 @@
 import React from 'react'
-import createReactClass from 'create-react-class'
+import { Provider } from 'react-redux'
+import store from './store'
 import ImageUpload from './components/ImageUpload' 
 
-const Main = createReactClass({
-    render: function() {
+const Main = function(){
         return (
-            <div>
+            <Provider store={store}>
                 <ImageUpload></ImageUpload>
-            </div>
+            </Provider>
         )
-    }
-})
+}
 
 export default Main

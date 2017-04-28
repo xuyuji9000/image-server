@@ -5,6 +5,6 @@ import reducer from './rootReducer'
 import logger from 'redux-logger'
 
 // middleware
-const middleware = applyMiddleware(logger())
+const store = createStore(reducer)
 
-export default createStore(reducer, middleware)
+export default store

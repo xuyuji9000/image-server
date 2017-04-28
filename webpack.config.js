@@ -12,14 +12,26 @@ module.exports = {
         publicPath: '/dist/',
     },
     module: {
-        loaders: [{
-            test: /.jsx?$/,
-            exclude: /node_modules/,
-            loader: [
-                'babel-loader?'+JSON.stringify({
-                    presets: ['es2015', 'react']
-                })
-            ],
-        }],
+        loaders: [
+            {
+                test: /.jsx?$/,
+                exclude: /node_modules/,
+                loaders: [
+                    'babel-loader?'+JSON.stringify({
+                        presets: ['es2015', 'react', 'stage-2', "stage-1"],
+                        plugins: ["transform-decorators-legacy", "transform-class-properties"]
+                    })
+                ],
+                include: path.join(__dirname, 'src')
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css?modules',
+                include: /flexboxgrid/
+            }
+        ],
+    },
+    node: {
+        fs: "empty"
     }
 };
