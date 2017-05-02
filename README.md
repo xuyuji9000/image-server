@@ -17,7 +17,7 @@ npm run build:prod
 
 run backend api
 ```bash
-php -S localhsot:3001 -t ./public ./public/index.php
+php -S localhost:3001 -t ./public ./public/index.php
 ```
 
 ### upload

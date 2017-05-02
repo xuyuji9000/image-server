@@ -7,9 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-    "build:dev": "webpack-dev-server --inline --hot --debug --devtool sourcemap --output-pathinfo --config webpack.config.js",
-    "build:prod": "webpack",
-    "setup": "npm i && composer install"
+    "frontend:dev": "webpack-dev-server --inline --hot --debug --devtool sourcemap --output-pathinfo --config webpack.config.js",
+    "frontend:prod": "webpack",
+    "setup": "npm i && composer install",
+    "backend": "php -S localhost:3001 -t ./public ./public/index.php"
   },
   "repository": {
     "type": "git",
